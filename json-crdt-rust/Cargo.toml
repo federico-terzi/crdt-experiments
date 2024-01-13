@@ -1,0 +1,29 @@
+[package]
+name = "json-crdt-rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+thiserror = "1.0.40"
+enum-as-inner = "0.6.0"
+rustc-hash = "1.1.0"
+serde_json = "1.0.108"
+heapless = "0.8.0"
+bytes = "1.5.0"
+bytes-varint = "1.0.3"
+num-integer = "0.1.45"
+# TODO: this should become optional, disabled for the WASM build to save space?
+chrono = { version = "0.4.31" }
+
+[dev-dependencies]
+criterion = { version = "0.5.1", features = ["html_reports"] }
+prettydiff = "0.6.4"
+peak_alloc = "0.2.0"
+
+[[bench]]
+name = "simple-insertions"
+harness = false
+
+[[bench]]
+name = "simple-merge"
+harness = false
